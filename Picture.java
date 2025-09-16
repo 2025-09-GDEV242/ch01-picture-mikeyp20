@@ -5,27 +5,44 @@
  * colors (only after it's been drawn, of course).
  *
  * This class was written as an early example for teaching Java with BlueJ.
+ * The picture shows 3 people walking past some pyrmaids
+ * @author Michael Patterson
+ * 9/15/2025
+   * @version 2016.02.29
  * 
- * @author  Michael Kšlling and David J. Barnes
- * @version 2016.02.29
  */
 public class Picture
 {
-    private Square wall;
-    private Square window;
-    private Triangle roof;
+    private Square path;
+    private Triangle pyrmaid;
+    private Triangle pyrmaid1;
+    private Triangle pyrmaid2;
     private Circle sun;
+    private Person man;
+    private Person man1;
+    private Person man2;
     private boolean drawn;
+    private int height;
+    private int width;
+    private int xPosition;
+    private int yPosition;
+    private String color;
+    private boolean isVisible;
+    
 
     /**
      * Constructor for objects of class Picture
      */
     public Picture()
     {
-        wall = new Square();
-        window = new Square();
-        roof = new Triangle();  
+        path = new Square();
+        pyrmaid = new Triangle();
+        pyrmaid1 = new Triangle();  
+        pyrmaid2 = new Triangle();
         sun = new Circle();
+        man = new Person();
+        man1 = new Person();
+        man2 = new Person();
         drawn = false;
     }
 
@@ -35,27 +52,42 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            wall.moveHorizontal(-140);
-            wall.moveVertical(20);
-            wall.changeSize(120);
-            wall.makeVisible();
-            
-            window.changeColor("black");
-            window.moveHorizontal(-120);
-            window.moveVertical(40);
-            window.changeSize(40);
-            window.makeVisible();
-    
-            roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
-            roof.moveVertical(-60);
-            roof.makeVisible();
-    
+            pyrmaid.changeSize(50,160);
+            pyrmaid.moveHorizontal(-100);
+            pyrmaid.moveVertical(-50);
+            pyrmaid.makeVisible();
+            pyrmaid.changeColor("blue");
+            pyrmaid1.changeSize(50,160);
+            pyrmaid1.moveHorizontal(190);
+            pyrmaid1.moveVertical(-30);
+            pyrmaid1.changeColor("blue");
+            pyrmaid1.makeVisible();
+            path.changeColor("green");
+            path.moveVertical(100);
+            path.moveHorizontal(-320);
+            path.changeSize(550);
+            path.makeVisible();
+            pyrmaid2.changeSize(50,160);
+            pyrmaid2.moveHorizontal(65);
+            pyrmaid2.makeVisible();
+            pyrmaid2.changeColor("blue");
             sun.changeColor("yellow");
             sun.moveHorizontal(100);
-            sun.moveVertical(-40);
+            sun.moveVertical(-80);
             sun.changeSize(80);
             sun.makeVisible();
+            man.changeSize(40,40);
+            man.moveHorizontal(-100);
+            man.moveVertical(0);
+            man.makeVisible();
+            man1.changeSize(40,40);
+            man1.moveHorizontal(-50);
+            man1.moveVertical(0);
+            man1.makeVisible();
+            man2.changeSize(40,40);
+            man2.moveHorizontal(-5);
+            man2.moveVertical(0);
+            man2.makeVisible();
             drawn = true;
         }
     }
@@ -65,9 +97,10 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        wall.changeColor("black");
-        window.changeColor("white");
-        roof.changeColor("black");
+        pyrmaid.changeColor("black");
+        pyrmaid1.changeColor("black");
+        pyrmaid2.changeColor("black");
+        path.changeColor("white");
         sun.changeColor("black");
     }
 
@@ -76,9 +109,10 @@ public class Picture
      */
     public void setColor()
     {
-        wall.changeColor("red");
-        window.changeColor("black");
-        roof.changeColor("green");
+        path.changeColor("green");
+        pyrmaid.changeColor("blue");
+        pyrmaid1.changeColor("blue");
+        pyrmaid2.changeColor("blue");
         sun.changeColor("yellow");
     }
 }
